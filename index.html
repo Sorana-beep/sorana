@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SORANA | Centro Médico Especializado - Tu confianza en salud</title>
+    <meta name="description" content="SORANA facilita el acceso a servicios médicos, orientando a cada persona y conectándola con clínicas y especialistas según sus necesidades.">
+    
+    <!-- Google Fonts: Poppins (Headings) and Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 6 for medical & interface icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sorana: {
+                            navy: '#102C53',      /* Primary Structural & Text */
+                            navyDark: '#0A1D38',  /* Deeper Navy for contrast */
+                            lightblue: '#88C0E0', /* Soft Accent & Light Backgrounds */
+                            teal: '#60A098',      /* Action CTA Buttons & Success States */
+                            tealHover: '#4e8780', /* Action Hover */
+                            slate: '#80B0C0',     /* Secondary Accents & Borders */
+                            lightbg: '#F4F8FA',   /* Clean Layout Canvas */
+                            cardbg: '#FFFFFF'
+                        }
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(16, 44, 83, 0.08)',
+                        'card-hover': '0 20px 30px -10px rgba(16, 44, 83, 0.12)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #102C53;
+            background-color: #FFFFFF;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .bg-pattern {
+            background-image: radial-gradient(#80B0C0 0.8px, transparent 0.8px);
+            background-size: 20px 20px;
+            background-color: #F4F8FA;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        /* Custom scrollbar for optimal presentation */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F4F8FA;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #80B0C0;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #60A098;
+        }
+    </style>
+</head>
+<body class="antialiased text-slate-800 bg-white selection:bg-sorana-lightblue/30 selection:text-sorana-navy">
+
+    <!-- TOP NOTIFICATION BAR (INSTITUTIONAL FEEL) -->
+    <div class="bg-sorana-navy text-white text-xs py-2 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
+            <div class="flex items-center gap-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-sorana-teal animate-pulse"></span>
+                <span class="font-medium text-slate-200">Atención médica orientada y presencial para casos leves</span>
+            </div>
+            <div class="flex items-center gap-6 text-[11px] text-slate-300">
+                <a href="#contacto" class="hover:text-sorana-lightblue transition-colors flex items-center gap-1">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>Horario: Lun - Sáb: 7:30 am - 8:00 pm</span>
+                </a>
+                <a href="#contacto" class="hover:text-sorana-lightblue transition-colors flex items-center gap-1">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Sede: Av. Javier Prado Este 1184 - 1186</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER / NAVIGATION MENU -->
+    <header class="sticky top-0 z-50 glass-header border-b border-slate-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-22 py-3">
+                
+                <!-- OFFICIAL BRAND LOGO (Accurate vector reproduction of SORANA logo) -->
+                <a href="#inicio" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="relative w-12 h-12 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+                        <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-sm">
+                            <!-- Top shape (Light Blue) -->
+                            <rect x="36" y="8" width="28" height="46" rx="14" fill="#88C0E0" />
+                            <!-- Bottom shape (Slate Teal) -->
+                            <rect x="36" y="46" width="28" height="46" rx="14" fill="#80B0C0" />
+                            <!-- Left shape (Light Blue) -->
+                            <rect x="8" y="36" width="46" height="28" rx="14" fill="#88C0E0" />
+                            <!-- Right shape (Green Teal) -->
+                            <rect x="46" y="36" width="46" height="28" rx="14" fill="#60A098" />
+                            <!-- Stylized White 'S' Cutout Curve matching official brand vector -->
+                            <path d="M 58 35 C 58 27, 42 27, 42 37 C 42 49, 58 48, 58 63 C 58 73, 42 73, 42 65" 
+                                  fill="none" stroke="#FFFFFF" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-poppins text-2xl font-bold tracking-wider text-sorana-navy leading-none">SORANA</span>
+                        <span class="text-[9px] font-semibold tracking-widest text-slate-500 uppercase mt-1">Centro Médico Especializado</span>
+                        <span class="text-[9.5px] font-medium text-sorana-teal tracking-tight italic mt-0.5">— Tu confianza en salud —</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center gap-7 text-xs sm:text-sm font-medium text-slate-700">
+                    <a href="#inicio" class="hover:text-sorana-teal transition-colors py-2 border-b-2 border-transparent hover:border-sorana-teal">Inicio</a>
+                    <a href="#nosotros" class="hover:text-sorana-teal transition-colors py-2 border-b-2 border-transparent hover:border-sorana-teal">Nosotros</a>
+                    <a href="#servicios" class="hover:text-sorana-teal transition-colors py-2 border-b-2 border-transparent hover:border-sorana-teal">Servicios</a>
+                    <a href="#especialidades" class="hover:text-sorana-teal transition-colors py-2 border-b-2 border-transparent hover:border-sorana-teal">Especialidades</a>
+                    <a href="#como-funciona" class="hover:text-sorana-teal transition-colors py-2 border-b-2 border-transparent hover:border-sorana-teal">¿Cómo funciona?</a>
+                    <a href="#faq" class="hover:text-sorana-teal transition-colors py-2 border-b-2 border-transparent hover:border-sorana-teal">Preguntas frecuentes</a>
+                    <a href="#contacto" class="hover:text-sorana-teal transition-colors py-2 border-b-2 border-transparent hover:border-sorana-teal">Contacto</a>
+                </nav>
+
+                <!-- Header CTA Action Button -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="#contacto" class="bg-sorana-teal hover:bg-sorana-tealHover text-white px-5 py-2.5 rounded-full font-semibold text-xs sm:text-sm transition-all shadow-md hover:shadow-lg flex items-center gap-2 group">
+                        <i class="fa-solid fa-headset text-xs group-hover:rotate-12 transition-transform"></i>
+                        <span>Solicitar orientación</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-sorana-navy p-2 rounded-lg hover:bg-slate-100 focus:outline-none" aria-label="Abrir menú de navegación">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 pt-3 pb-6 space-y-3 shadow-lg">
+            <a href="#inicio" class="block py-2.5 text-slate-700 font-medium hover:text-sorana-teal border-b border-slate-100">Inicio</a>
+            <a href="#nosotros" class="block py-2.5 text-slate-700 font-medium hover:text-sorana-teal border-b border-slate-100">Nosotros</a>
+            <a href="#servicios" class="block py-2.5 text-slate-700 font-medium hover:text-sorana-teal border-b border-slate-100">Servicios</a>
+            <a href="#especialidades" class="block py-2.5 text-slate-700 font-medium hover:text-sorana-teal border-b border-slate-100">Especialidades</a>
+            <a href="#como-funciona" class="block py-2.5 text-slate-700 font-medium hover:text-sorana-teal border-b border-slate-100">¿Cómo funciona?</a>
+            <a href="#faq" class="block py-2.5 text-slate-700 font-medium hover:text-sorana-teal border-b border-slate-100">Preguntas frecuentes</a>
+            <a href="#contacto" class="block py-2.5 text-slate-700 font-medium hover:text-sorana-teal">Contacto</a>
+            <div class="pt-2">
+                <a href="#contacto" class="block text-center bg-sorana-teal hover:bg-sorana-tealHover text-white py-3 rounded-xl font-semibold text-sm shadow">
+                    <i class="fa-solid fa-comments mr-2"></i> Solicitar orientación
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (IMPACTFUL & HUMAN MEDICAL FOCUS) -->
+    <section id="inicio" class="relative bg-gradient-to-b from-slate-50 via-blue-50/40 to-white py-12 md:py-20 overflow-hidden">
+        
+        <!-- Subtle medical background graphic elements -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-sorana-lightblue/15 blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-sorana-slate/15 blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                
+                <!-- Hero Main Content Text -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    
+                    <div class="inline-flex items-center gap-2 bg-white border border-sorana-lightblue/50 shadow-sm text-sorana-navy px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide">
+                        <span class="w-2.5 h-2.5 rounded-full bg-sorana-teal animate-ping"></span>
+                        <i class="fa-solid fa-hospital text-sorana-teal text-xs"></i>
+                        <span>SORANA — Centro Médico Especializado</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-sorana-navy leading-tight tracking-tight">
+                        Te orientamos y te conectamos con la <span class="text-sorana-teal underline decoration-sorana-lightblue/60 decoration-wavy decoration-2">atención médica adecuada</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Entendemos lo complejo que es buscar ayuda médica sin saber a dónde ir. En <strong>SORANA</strong> escuchamos tu necesidad, te orientamos con claridad y profesionalismo, y te conectamos con la opción o especialista adecuado. Además, contamos con atención presencial en nuestro local para casos leves.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#contacto" class="w-full sm:w-auto bg-sorana-teal hover:bg-sorana-tealHover text-white px-8 py-4 rounded-xl font-semibold text-center transition-all shadow-md hover:shadow-xl flex items-center justify-center gap-3">
+                            <span>Solicitar orientación</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                        <a href="#especialidades" class="w-full sm:w-auto bg-white border-2 border-sorana-navy/20 hover:border-sorana-navy text-sorana-navy px-8 py-4 rounded-xl font-semibold text-center transition-all shadow-sm hover:shadow">
+                            Ver especialidades
+                        </a>
+                    </div>
+
+                    <!-- Key Trust Indicators Banner -->
+                    <div class="pt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-slate-200/80 text-left">
+                        <div class="flex items-center gap-3 bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
+                            <div class="w-9 h-9 rounded-lg bg-sorana-lightblue/20 text-sorana-navy flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-heart-circle-check text-sorana-teal"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-sorana-navy">Atención Humana</h4>
+                                <p class="text-[11px] text-slate-500">Orientación clara y comprensible</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
+                            <div class="w-9 h-9 rounded-lg bg-sorana-lightblue/20 text-sorana-navy flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-network-wired text-sorana-teal"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-sorana-navy">Red Médica</h4>
+                                <p class="text-[11px] text-slate-500">Especialistas e instituciones</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
+                            <div class="w-9 h-9 rounded-lg bg-sorana-lightblue/20 text-sorana-navy flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-clinic-medical text-sorana-teal"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-sorana-navy">Local Presencial</h4>
+                                <p class="text-[11px] text-slate-500">Para casos médicos leves</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- HERO INTERACTIVE TRIAGE / GUIDANCE CARD -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-glass border border-slate-200/80 relative overflow-hidden">
+                        
+                        <!-- Top Accent Tag -->
+                        <div class="flex justify-between items-center mb-6">
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 rounded-full bg-sorana-teal"></div>
+                                <span class="text-xs font-bold text-sorana-navy uppercase tracking-wider">Asistente de Orientación</span>
+                            </div>
+                            <span class="text-[11px] bg-sorana-lightbg text-sorana-navy font-semibold px-3 py-1 rounded-full border border-slate-200">Rápido y Seguro</span>
+                        </div>
+
+                        <h3 class="text-lg font-bold text-sorana-navy mb-1">¿Cómo podemos guiarte hoy?</h3>
+                        <p class="text-xs text-slate-500 mb-6">Selecciona una opción para darte el primer paso de ayuda:</p>
+
+                        <!-- Interactive Wizard Option Buttons -->
+                        <div class="space-y-3" id="hero-wizard">
+                            <button onclick="selectHeroOption('orientacion')" class="wizard-opt w-full text-left p-3.5 rounded-2xl border-2 border-slate-100 hover:border-sorana-teal bg-slate-50 hover:bg-white transition-all flex items-center justify-between group">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-xl bg-sorana-lightblue/20 text-sorana-navy flex items-center justify-center group-hover:bg-sorana-teal group-hover:text-white transition-colors">
+                                        <i class="fa-solid fa-question text-sm"></i>
+                                    </div>
+                                    <span class="text-xs font-bold text-slate-700 group-hover:text-sorana-navy">Tengo un malestar y no sé a quién acudir</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-right text-xs text-slate-400 group-hover:text-sorana-teal"></i>
+                            </button>
+
+                            <button onclick="selectHeroOption('especialidad')" class="wizard-opt w-full text-left p-3.5 rounded-2xl border-2 border-slate-100 hover:border-sorana-teal bg-slate-50 hover:bg-white transition-all flex items-center justify-between group">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-xl bg-sorana-lightblue/20 text-sorana-navy flex items-center justify-center group-hover:bg-sorana-teal group-hover:text-white transition-colors">
+                                        <i class="fa-solid fa-user-doctor text-sm"></i>
+                                    </div>
+                                    <span class="text-xs font-bold text-slate-700 group-hover:text-sorana-navy">Busco una clínica o especialista particular</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-right text-xs text-slate-400 group-hover:text-sorana-teal"></i>
+                            </button>
+
+                            <button onclick="selectHeroOption('leve')" class="wizard-opt w-full text-left p-3.5 rounded-2xl border-2 border-slate-100 hover:border-sorana-teal bg-slate-50 hover:bg-white transition-all flex items-center justify-between group">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-xl bg-sorana-lightblue/20 text-sorana-navy flex items-center justify-center group-hover:bg-sorana-teal group-hover:text-white transition-colors">
+                                        <i class="fa-solid fa-house-medical text-sm"></i>
+                                    </div>
+                                    <span class="text-xs font-bold text-slate-700 group-hover:text-sorana-navy">Quiero atención presencial para un caso leve</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-right text-xs text-slate-400 group-hover:text-sorana-teal"></i>
+                            </button>
+                        </div>
+
+                        <!-- Interactive Wizard Result Box -->
+                        <div id="hero-wizard-result" class="hidden mt-4 p-4 rounded-2xl bg-sorana-navy text-white space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-bold text-sorana-lightblue uppercase tracking-wider" id="hero-result-title">Sugerencia de Orientación</span>
+                                <button onclick="resetHeroWizard()" class="text-[10px] text-slate-300 hover:text-white underline">Cambiar</button>
+                            </div>
+                            <p class="text-xs text-slate-200 leading-relaxed" id="hero-result-text">
+                                Te escuchamos sin compromiso. Nuestro equipo te explicará qué alternativa es la más conveniente.
+                            </p>
+                            <a href="#contacto" id="hero-result-btn" class="block text-center bg-sorana-teal hover:bg-sorana-tealHover text-white py-2.5 rounded-xl text-xs font-bold transition-all shadow">
+                                Ir a Formulario de Orientación
+                            </a>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+                            <span class="flex items-center gap-1.5">
+                                <i class="fa-solid fa-shield-halved text-sorana-teal"></i>
+                                Respuesta rápida y confidencial
+                            </span>
+                            <span class="font-bold text-sorana-navy">SORANA</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: ¿QUÉ ES SORANA? (CARE MODEL FLOW) -->
+    <section class="py-16 bg-white border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold text-sorana-teal tracking-widest uppercase">Modelo de atención responsable</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-sorana-navy mt-1">Tu salud, con la orientación adecuada</h2>
+                <p class="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed">
+                    <strong>SORANA</strong> es una marca comercial privada del sector salud que funciona como puente entre las personas y la atención médica que requieren. Te ayudamos a resolver la duda de a dónde acudir y te guiamos paso a paso de forma clara y accesible.
+                </p>
+            </div>
+
+            <!-- VISUAL FLOW REPRESENTATION (NECESIDAD -> ORIENTACIÓN -> SORANA -> ESPECIALISTA O PRESENCIAL) -->
+            <div class="bg-pattern rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-sm relative">
+                
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
+                    
+                    <!-- Flow Item 1 -->
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm text-center relative hover:shadow-md transition-all">
+                        <div class="w-12 h-12 mx-auto mb-3 rounded-2xl bg-sorana-lightblue/20 text-sorana-navy flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-hospital-user"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-sorana-teal tracking-widest uppercase block mb-1">PASO 1</span>
+                        <h4 class="font-bold text-sorana-navy text-sm mb-1">Necesidad</h4>
+                        <p class="text-xs text-slate-500">Tienes un síntoma o inquietud médica y no sabes a dónde ir.</p>
+                    </div>
+
+                    <div class="hidden md:flex justify-center text-sorana-slate">
+                        <i class="fa-solid fa-arrow-right text-xl"></i>
+                    </div>
+
+                    <!-- Flow Item 2 (SORANA HIGHLIGHT) -->
+                    <div class="bg-sorana-navy text-white p-6 rounded-2xl shadow-lg text-center transform md:scale-105 border-2 border-sorana-lightblue relative">
+                        <div class="w-12 h-12 mx-auto mb-3 rounded-2xl bg-sorana-teal text-white flex items-center justify-center font-bold text-lg shadow">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-sorana-lightblue tracking-widest uppercase block mb-1">NUESTRO ROL</span>
+                        <h4 class="font-bold text-white text-base mb-1">SORANA</h4>
+                        <p class="text-xs text-slate-200">Te escuchamos, evaluamos tu consulta y te orientamos.</p>
+                    </div>
+
+                    <div class="hidden md:flex justify-center text-sorana-slate">
+                        <i class="fa-solid fa-arrow-right text-xl"></i>
+                    </div>
+
+                    <!-- Flow Item 3 -->
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm text-center relative hover:shadow-md transition-all">
+                        <div class="w-12 h-12 mx-auto mb-3 rounded-2xl bg-sorana-lightblue/20 text-sorana-navy flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-user-md"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-sorana-teal tracking-widest uppercase block mb-1">PASO 2</span>
+                        <h4 class="font-bold text-sorana-navy text-sm mb-1">Atención Oportuna</h4>
+                        <p class="text-xs text-slate-500">Especialista / Clínica recomendada o Atención Presencial Leve.</p>
+                    </div>
+
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-3 text-xs text-slate-600 text-center sm:text-left">
+                        <i class="fa-solid fa-circle-info text-sorana-teal text-base flex-shrink-0"></i>
+                        <span>Facilitamos el acceso guiándote de manera humana y sin tecnicismos innecesarios.</span>
+                    </div>
+                    <a href="#como-funciona" class="inline-flex items-center gap-2 text-xs font-bold text-sorana-navy hover:text-sorana-teal transition-colors flex-shrink-0">
+                        <span>Ver detalle del proceso paso a paso</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: NUESTROS SERVICIOS -->
+    <section id="servicios" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold text-sorana-teal tracking-widest uppercase">Servicios integrales</span>
+                <h2 class="text-3xl font-bold text-sorana-navy mt-1">Soluciones diseñadas para tu tranquilidad</h2>
+                <p class="text-slate-600 text-sm sm:text-base mt-2">
+                    Te acompañamos desde la primera duda hasta la atención médica requerida.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Service 1 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-sm hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-16 h-16 rounded-2xl bg-sorana-lightblue/20 text-sorana-navy flex items-center justify-center mb-6 group-hover:bg-sorana-navy group-hover:text-white transition-all">
+                            <i class="fa-solid fa-clipboard-question text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-sorana-navy mb-3">Orientación Médica</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                            Te ayudamos a identificar qué tipo de atención o especialista puede ser adecuado para tu necesidad particular, ahorrándote tiempo, desorientación y decisiones apresuradas.
+                        </p>
+                    </div>
+                    <div>
+                        <a href="#contacto" class="w-full inline-flex items-center justify-between py-3 px-4 rounded-xl bg-sorana-lightbg text-sorana-navy font-semibold text-xs hover:bg-sorana-teal hover:text-white transition-all group-hover:shadow">
+                            <span>Solicitar orientación</span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 2 (Highlighted) -->
+                <div class="bg-white rounded-3xl p-8 border-2 border-sorana-teal shadow-md hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group relative">
+                    <span class="absolute -top-3.5 right-6 bg-sorana-teal text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow">
+                        Red Seleccionada
+                    </span>
+                    <div>
+                        <div class="w-16 h-16 rounded-2xl bg-sorana-teal/20 text-sorana-teal flex items-center justify-center mb-6 group-hover:bg-sorana-teal group-hover:text-white transition-all">
+                            <i class="fa-solid fa-network-wired text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-sorana-navy mb-3">Conexión con Especialistas y Clínicas</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                            Te conectamos de forma ágil con clínicas y médicos especialistas pertenecientes a nuestra red de contactos según tu conveniencia de ubicación y tipo de consulta.
+                        </p>
+                    </div>
+                    <div>
+                        <a href="#contacto" class="w-full inline-flex items-center justify-between py-3 px-4 rounded-xl bg-sorana-teal text-white font-semibold text-xs hover:bg-sorana-tealHover transition-all shadow">
+                            <span>Consultar opciones</span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-sm hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-16 h-16 rounded-2xl bg-sorana-slate/20 text-sorana-navy flex items-center justify-center mb-6 group-hover:bg-sorana-navy group-hover:text-white transition-all">
+                            <i class="fa-solid fa-house-medical text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-sorana-navy mb-3">Atención Presencial para Casos Leves</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                            Contamos con un local físico acondicionando para brindar atención presencial e inmediata frente a malestares menores y afecciones médicas leves.
+                        </p>
+                    </div>
+                    <div>
+                        <a href="#contacto" class="w-full inline-flex items-center justify-between py-3 px-4 rounded-xl bg-sorana-lightbg text-sorana-navy font-semibold text-xs hover:bg-sorana-teal hover:text-white transition-all group-hover:shadow">
+                            <span>Atención en local</span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: ESPECIALIDADES -->
+    <section id="especialidades" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-xs font-bold text-sorana-teal tracking-widest uppercase">Red de salud</span>
+                    <h2 class="text-3xl font-bold text-sorana-navy mt-1">Especialidades a tu alcance</h2>
+                    <p class="text-slate-600 text-sm max-w-xl mt-2">
+                        Facilitamos el puente con diversas ramas médicas para asegurar la atención oportuna que requieres.
+                    </p>
+                </div>
+
+                <!-- Interactive Specialty Quick Search -->
+                <div class="mt-6 md:mt-0 w-full md:w-72">
+                    <div class="relative">
+                        <input type="text" id="specialty-search" placeholder="Buscar especialidad..." class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-none focus:border-sorana-teal">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-xs"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Specialties Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6" id="specialties-grid">
+                
+                <div class="specialty-card bg-sorana-lightbg p-5 rounded-2xl border border-slate-200/70 hover:border-sorana-lightblue hover:bg-white hover:shadow-md transition-all text-center group" data-name="cardiologia">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-2xl bg-white text-sorana-navy flex items-center justify-center shadow-sm group-hover:bg-sorana-teal group-hover:text-white transition-all">
+                        <i class="fa-solid fa-heart-pulse text-lg"></i>
+                    </div>
+                    <h4 class="font-bold text-sorana-navy text-sm">Cardiología</h4>
+                    <p class="text-[11px] text-slate-500 mt-1">Salud cardiovascular e integral</p>
+                    <a href="#contacto" class="mt-3 inline-block text-[11px] font-bold text-sorana-teal hover:underline">Ver opción</a>
+                </div>
+
+                <div class="specialty-card bg-sorana-lightbg p-5 rounded-2xl border border-slate-200/70 hover:border-sorana-lightblue hover:bg-white hover:shadow-md transition-all text-center group" data-name="dermatologia">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-2xl bg-white text-sorana-navy flex items-center justify-center shadow-sm group-hover:bg-sorana-teal group-hover:text-white transition-all">
+                        <i class="fa-solid fa-hand-holding-medical text-lg"></i>
+                    </div>
+                    <h4 class="font-bold text-sorana-navy text-sm">Dermatología</h4>
+                    <p class="text-[11px] text-slate-500 mt-1">Cuidado de la piel y mucosas</p>
+                    <a href="#contacto" class="mt-3 inline-block text-[11px] font-bold text-sorana-teal hover:underline">Ver opción</a>
+                </div>
+
+                <div class="specialty-card bg-sorana-lightbg p-5 rounded-2xl border border-slate-200/70 hover:border-sorana-lightblue hover:bg-white hover:shadow-md transition-all text-center group" data-name="ginecologia">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-2xl bg-white text-sorana-navy flex items-center justify-center shadow-sm group-hover:bg-sorana-teal group-hover:text-white transition-all">
+                        <i class="fa-solid fa-person-breastfeeding text-lg"></i>
+                    </div>
+                    <h4 class="font-bold text-sorana-navy text-sm">Ginecología</h4>
+                    <p class="text-[11px] text-slate-500 mt-1">Atención especializada para la mujer</p>
+                    <a href="#contacto" class="mt-3 inline-block text-[11px] font-bold text-sorana-teal hover:underline">Ver opción</a>
+                </div>
+
+                <div class="specialty-card bg-sorana-lightbg p-5 rounded-2xl border border-slate-200/70 hover:border-sorana-lightblue hover:bg-white hover:shadow-md transition-all text-center group" data-name="traumatologia">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-2xl bg-white text-sorana-navy flex items-center justify-center shadow-sm group-hover:bg-sorana-teal group-hover:text-white transition-all">
+                        <i class="fa-solid fa-bone text-lg"></i>
+                    </div>
+                    <h4 class="font-bold text-sorana-navy text-sm">Traumatología</h4>
+                    <p class="text-[11px] text-slate-500 mt-1">Evaluación articular y ósea</p>
+                    <a href="#contacto" class="mt-3 inline-block text-[11px] font-bold text-sorana-teal hover:underline">Ver opción</a>
+                </div>
+
+                <div class="specialty-card bg-sorana-lightbg p-5 rounded-2xl border border-slate-200/70 hover:border-sorana-lightblue hover:bg-white hover:shadow-md transition-all text-center group" data-name="neurologia">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-2xl bg-white text-sorana-navy flex items-center justify-center shadow-sm group-hover:bg-sorana-teal group-hover:text-white transition-all">
+                        <i class="fa-solid fa-brain text-lg"></i>
+                    </div>
+                    <h4 class="font-bold text-sorana-navy text-sm">Neurología</h4>
+                    <p class="text-[11px] text-slate-500 mt-1">Sistema nervioso y migrañas</p>
+                    <a href="#contacto" class="mt-3 inline-block text-[11px] font-bold text-sorana-teal hover:underline">Ver opción</a>
+                </div>
+
+                <div class="specialty-card bg-sorana-lightbg p-5 rounded-2xl border border-slate-200/70 hover:border-sorana-lightblue hover:bg-white hover:shadow-md transition-all text-center group" data-name="oftalmologia">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-2xl bg-white text-sorana-navy flex items-center justify-center shadow-sm group-hover:bg-sorana-teal group-hover:text-white transition-all">
+                        <i class="fa-solid fa-eye text-lg"></i>
+                    </div>
+                    <h4 class="font-bold text-sorana-navy text-sm">Oftalmología</h4>
+                    <p class="text-[11px] text-slate-500 mt-1">Salud y cuidado visual</p>
+                    <a href="#contacto" class="mt-3 inline-block text-[11px] font-bold text-sorana-teal hover:underline">Ver opción</a>
+                </div>
+
+                <div class="specialty-card bg-sorana-lightbg p-5 rounded-2xl border border-slate-200/70 hover:border-sorana-lightblue hover:bg-white hover:shadow-md transition-all text-center group" data-name="pediatria">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-2xl bg-white text-sorana-navy flex items-center justify-center shadow-sm group-hover:bg-sorana-teal group-hover:text-white transition-all">
+                        <i class="fa-solid fa-child text-lg"></i>
+                    </div>
+                    <h4 class="font-bold text-sorana-navy text-sm">Pediatría</h4>
+                    <p class="text-[11px] text-slate-500 mt-1">Orientación en salud infantil</p>
+                    <a href="#contacto" class="mt-3 inline-block text-[11px] font-bold text-sorana-teal hover:underline">Ver opción</a>
+                </div>
+
+                <div class="specialty-card bg-sorana-lightbg p-5 rounded-2xl border border-slate-200/70 hover:border-sorana-lightblue hover:bg-white hover:shadow-md transition-all text-center group" data-name="medicina interna">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-2xl bg-white text-sorana-navy flex items-center justify-center shadow-sm group-hover:bg-sorana-teal group-hover:text-white transition-all">
+                        <i class="fa-solid fa-stethoscope text-lg"></i>
+                    </div>
+                    <h4 class="font-bold text-sorana-navy text-sm">Medicina Interna</h4>
+                    <p class="text-[11px] text-slate-500 mt-1">Evaluación médica clínica general</p>
+                    <a href="#contacto" class="mt-3 inline-block text-[11px] font-bold text-sorana-teal hover:underline">Ver opción</a>
+                </div>
+
+            </div>
+
+            <!-- Callout box for other specialties -->
+            <div class="mt-10 p-6 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-3 text-center sm:text-left">
+                    <div class="w-10 h-10 rounded-xl bg-sorana-teal text-white flex items-center justify-center font-bold flex-shrink-0">
+                        <i class="fa-solid fa-notes-medical"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-sorana-navy">¿Buscas otra especialidad o no estás seguro?</h4>
+                        <p class="text-xs text-slate-500">Cuéntanos tus síntomas y te diremos exactamente qué área médica requieres.</p>
+                    </div>
+                </div>
+                <a href="#contacto" class="bg-sorana-navy hover:bg-sorana-navyDark text-white px-6 py-3 rounded-xl font-semibold text-xs transition-all whitespace-nowrap">
+                    Consultar con un orientador
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: ¿CÓMO FUNCIONA? -->
+    <section id="como-funciona" class="py-20 bg-sorana-navy text-white relative overflow-hidden">
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold text-sorana-lightblue tracking-widest uppercase">Proceso transparente</span>
+                <h2 class="text-3xl font-bold mt-1">¿Cómo funciona SORANA?</h2>
+                <p class="text-slate-300 text-sm mt-2">
+                    4 pasos sencillos para simplificar el acceso a tu salud con total tranquilidad.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Step 1 -->
+                <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-sorana-lightblue transition-all relative flex flex-col justify-between">
+                    <div>
+                        <span class="text-5xl font-extrabold text-sorana-lightblue/20 absolute top-4 right-4 font-poppins">01</span>
+                        <div class="w-10 h-10 rounded-xl bg-sorana-teal text-white flex items-center justify-center font-bold mb-4 shadow">
+                            <i class="fa-solid fa-comment-medical"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Cuéntanos qué necesitas</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Nos escribes o visitas indicándonos el malestar o duda que tienes tú o tu familiar.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-[11px] text-sorana-lightblue">
+                        Paso inicial libre de barreras
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-sorana-lightblue transition-all relative flex flex-col justify-between">
+                    <div>
+                        <span class="text-5xl font-extrabold text-sorana-lightblue/20 absolute top-4 right-4 font-poppins">02</span>
+                        <div class="w-10 h-10 rounded-xl bg-sorana-teal text-white flex items-center justify-center font-bold mb-4 shadow">
+                            <i class="fa-solid fa-user-doctor"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Orientamos tu necesidad</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Evaluamos la situación inicial para identificar el tipo de especialidad o atención idónea.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-[11px] text-sorana-lightblue">
+                        Escucha empática y clara
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-sorana-lightblue transition-all relative flex flex-col justify-between">
+                    <div>
+                        <span class="text-5xl font-extrabold text-sorana-lightblue/20 absolute top-4 right-4 font-poppins">03</span>
+                        <div class="w-10 h-10 rounded-xl bg-sorana-teal text-white flex items-center justify-center font-bold mb-4 shadow">
+                            <i class="fa-solid fa-magnifying-glass-location"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Buscamos una opción adecuada</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Identificamos la alternativa más conveniente en nuestra red de clínicas/médicos o en nuestro local.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-[11px] text-sorana-lightblue">
+                        Selección según conveniencia
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-sorana-lightblue transition-all relative flex flex-col justify-between">
+                    <div>
+                        <span class="text-5xl font-extrabold text-sorana-lightblue/20 absolute top-4 right-4 font-poppins">04</span>
+                        <div class="w-10 h-10 rounded-xl bg-sorana-teal text-white flex items-center justify-center font-bold mb-4 shadow">
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Te conectamos con la atención</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Facilitamos la conexión para que recibas la atención médica correspondiente sin contratiempos.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-[11px] text-sorana-lightblue">
+                        Acompañamiento en el camino
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#contacto" class="inline-flex items-center gap-2 bg-sorana-teal hover:bg-sorana-tealHover text-white px-8 py-3.5 rounded-xl font-bold text-xs sm:text-sm transition-all shadow-lg">
+                    <span>Solicitar orientación ahora</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: ¿POR QUÉ SORANA? (DIFFERENTIATORS) -->
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold text-sorana-teal tracking-widest uppercase">Pilares de servicio</span>
+                <h2 class="text-3xl font-bold text-sorana-navy mt-1">¿Por qué elegir SORANA?</h2>
+                <p class="text-slate-600 text-sm mt-2">
+                    Ofrecemos una alternativa humana, responsable e íntegra para gestionar tu atención médica.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm text-center hover:shadow-md transition-all">
+                    <div class="w-12 h-12 mx-auto mb-4 rounded-2xl bg-sorana-lightblue/20 text-sorana-navy flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-shield-heart text-sorana-teal"></i>
+                    </div>
+                    <h3 class="font-bold text-sorana-navy text-lg mb-2">CONFIANZA</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Orientación enfocado 100% en las necesidades reales del paciente, con transparencia y ética.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm text-center hover:shadow-md transition-all">
+                    <div class="w-12 h-12 mx-auto mb-4 rounded-2xl bg-sorana-lightblue/20 text-sorana-navy flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-people-roof text-sorana-teal"></i>
+                    </div>
+                    <h3 class="font-bold text-sorana-navy text-lg mb-2">CERCANÍA</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Comunicación clara, cálida y sin tecnicismos innecesarios para que te sientas respaldado.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm text-center hover:shadow-md transition-all">
+                    <div class="w-12 h-12 mx-auto mb-4 rounded-2xl bg-sorana-lightblue/20 text-sorana-navy flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-user-tie text-sorana-teal"></i>
+                    </div>
+                    <h3 class="font-bold text-sorana-navy text-lg mb-2">PROFESIONALISMO</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Presentación y atención responsable adaptada al rigor que exige la gestión de la salud.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm text-center hover:shadow-md transition-all">
+                    <div class="w-12 h-12 mx-auto mb-4 rounded-2xl bg-sorana-lightblue/20 text-sorana-navy flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-link text-sorana-teal"></i>
+                    </div>
+                    <h3 class="font-bold text-sorana-navy text-lg mb-2">CONEXIÓN</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Acceso a nuestra red de clínicas y médicos especialistas independientes seleccionados.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: SOBRE NOSOTROS (ABOUT SORANA) -->
+    <section id="nosotros" class="py-20 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-bold text-sorana-teal tracking-widest uppercase">Conoce SORANA</span>
+                    <h2 class="text-3xl font-bold text-sorana-navy">Un puente confiable entre tú y la atención médica</h2>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        SORANA nace para hacer más sencillo el acceso de las personas a servicios médicos confiables, ayudándolas a encontrar y conectar con la atención adecuada según sus necesidades particulares.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <!-- Mission Box -->
+                        <div class="p-5 rounded-2xl bg-sorana-lightbg border border-slate-200/80">
+                            <h4 class="font-bold text-sorana-navy text-sm flex items-center gap-2.5 mb-1.5">
+                                <i class="fa-solid fa-bullseye text-sorana-teal text-base"></i>
+                                <span>Misión</span>
+                            </h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Facilitar el acceso a servicios médicos confiables, conectando a las personas con clínicas y especialistas adecuados según sus necesidades.
+                            </p>
+                        </div>
+
+                        <!-- Vision Box -->
+                        <div class="p-5 rounded-2xl bg-sorana-lightbg border border-slate-200/80">
+                            <h4 class="font-bold text-sorana-navy text-sm flex items-center gap-2.5 mb-1.5">
+                                <i class="fa-solid fa-eye text-sorana-teal text-base"></i>
+                                <span>Visión</span>
+                            </h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Ser una marca referente en la conexión entre pacientes y servicios médicos, reconocida por su confianza, cercanía y facilidad de acceso.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Values Card -->
+                <div class="lg:col-span-6">
+                    <div class="bg-gradient-to-br from-sorana-navy to-[#183a69] text-white rounded-3xl p-8 sm:p-10 shadow-xl space-y-6 relative overflow-hidden">
+                        
+                        <div class="flex items-center gap-3 border-b border-white/10 pb-4">
+                            <div class="w-10 h-10 rounded-xl bg-sorana-teal text-white flex items-center justify-center font-bold">
+                                <i class="fa-solid fa-hands-holding-child"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Nuestra Filosofía de Servicio</h3>
+                                <p class="text-xs text-sorana-lightblue">Arquetipo de Marca: El Cuidador</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3.5">
+                                <div class="w-7 h-7 rounded-full bg-sorana-teal text-white flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">1</div>
+                                <div>
+                                    <h4 class="font-bold text-xs text-sorana-lightblue uppercase tracking-wider">Confianza</h4>
+                                    <p class="text-xs text-slate-200 mt-1">Construimos relaciones éticas e íntegras con cada persona que acude a nosotros.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3.5">
+                                <div class="w-7 h-7 rounded-full bg-sorana-teal text-white flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">2</div>
+                                <div>
+                                    <h4 class="font-bold text-xs text-sorana-lightblue uppercase tracking-wider">Cercanía</h4>
+                                    <p class="text-xs text-slate-200 mt-1">Escuchamos activamente y orientamos con un lenguaje humano y comprensible.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3.5">
+                                <div class="w-7 h-7 rounded-full bg-sorana-teal text-white flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">3</div>
+                                <div>
+                                    <h4 class="font-bold text-xs text-sorana-lightblue uppercase tracking-wider">Profesionalismo</h4>
+                                    <p class="text-xs text-slate-200 mt-1">Mantenemos la seriedad e institucionalidad que tu tranquilidad y salud requieren.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 text-xs text-slate-300 italic border-t border-white/10">
+                            "Tu tranquilidad es el primer paso hacia tu bienestar."
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: ELEMENTOS DE CONFIANZA & ÉTICA MÉDICA -->
+    <section class="py-16 bg-slate-50 border-y border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 shadow-sm text-center max-w-4xl mx-auto space-y-4">
+                
+                <div class="w-12 h-12 mx-auto rounded-2xl bg-sorana-teal/20 text-sorana-teal flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                </div>
+
+                <h3 class="text-xl font-bold text-sorana-navy">Compromiso de Transparencia y Ética Médica</h3>
+                
+                <p class="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                    En <strong>SORANA</strong> respetamos profundamente tu salud. No realizamos diagnósticos automatizados ni promesas médicas irresponsables. Nuestro propósito es ser la guía confiable que te oriente y conecte con los profesionales e instituciones médicas adecuadas.
+                </p>
+
+                <!-- Editable slot placeholder for future stats/certifications -->
+                <div class="pt-3">
+                    <span class="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 bg-slate-100 px-4 py-2 rounded-xl border border-slate-200/60">
+                        <i class="fa-solid fa-lock text-sorana-teal"></i>
+                        <span>Red médica en constante verificación e institucionalización [Agregar información próximamente]</span>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: PREGUNTAS FRECUENTES (INTERACTIVE FAQ ACCORDION) -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold text-sorana-teal tracking-widest uppercase">Resolvemos tus dudas</span>
+                <h2 class="text-3xl font-bold text-sorana-navy mt-1">Preguntas Frecuentes</h2>
+                <p class="text-slate-600 text-sm mt-2">
+                    Encuentra respuestas claras a las preguntas más habituales sobre nuestro modelo de atención.
+                </p>
+            </div>
+
+            <div class="space-y-3" id="faq-accordion">
+                
+                <!-- FAQ Item 1 -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden transition-all bg-white">
+                    <button class="faq-btn w-full p-5 text-left font-bold text-sorana-navy text-sm sm:text-base flex justify-between items-center bg-slate-50/80 hover:bg-slate-100 transition-colors focus:outline-none">
+                        <span class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-question text-sorana-teal text-sm"></i>
+                            ¿Qué es SORANA?
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden p-5 text-xs sm:text-sm text-slate-600 bg-white border-t border-slate-100 leading-relaxed">
+                        SORANA es una marca comercial privada del sector salud que funciona como intermediario y buscador de servicios médicos. Orientamos a las personas según sus necesidades particulares y las conectamos con clínicas y médicos especialistas de nuestra red de contactos.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden transition-all bg-white">
+                    <button class="faq-btn w-full p-5 text-left font-bold text-sorana-navy text-sm sm:text-base flex justify-between items-center bg-slate-50/80 hover:bg-slate-100 transition-colors focus:outline-none">
+                        <span class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-question text-sorana-teal text-sm"></i>
+                            ¿Cómo funciona SORANA?
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden p-5 text-xs sm:text-sm text-slate-600 bg-white border-t border-slate-100 leading-relaxed">
+                        Es muy sencillo: nos contactas explicando tu consulta o malestar. Evaluamos la situación inicial para sugerirte la atención conveniente y te conectamos con la clínica o especialista idóneo, o te atendemos en nuestro local si es un caso leve.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden transition-all bg-white">
+                    <button class="faq-btn w-full p-5 text-left font-bold text-sorana-navy text-sm sm:text-base flex justify-between items-center bg-slate-50/80 hover:bg-slate-100 transition-colors focus:outline-none">
+                        <span class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-question text-sorana-teal text-sm"></i>
+                            No sé qué especialista necesito, ¿pueden orientarme?
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden p-5 text-xs sm:text-sm text-slate-600 bg-white border-t border-slate-100 leading-relaxed">
+                        ¡Exactamente para eso estamos! Escuchamos tus síntomas y te guiamos para saber qué área médica es la adecuada antes de que agendes una cita equivocada.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden transition-all bg-white">
+                    <button class="faq-btn w-full p-5 text-left font-bold text-sorana-navy text-sm sm:text-base flex justify-between items-center bg-slate-50/80 hover:bg-slate-100 transition-colors focus:outline-none">
+                        <span class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-question text-sorana-teal text-sm"></i>
+                            ¿Qué servicios ofrece SORANA?
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden p-5 text-xs sm:text-sm text-slate-600 bg-white border-t border-slate-100 leading-relaxed">
+                        Ofrecemos 3 pilares principales: 1) Orientación médica inicial, 2) Conexión con clínicas y médicos especialistas, y 3) Atención presencial directa en nuestro local físico para casos leves.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden transition-all bg-white">
+                    <button class="faq-btn w-full p-5 text-left font-bold text-sorana-navy text-sm sm:text-base flex justify-between items-center bg-slate-50/80 hover:bg-slate-100 transition-colors focus:outline-none">
+                        <span class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-question text-sorana-teal text-sm"></i>
+                            ¿Atienden casos leves en su local?
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden p-5 text-xs sm:text-sm text-slate-600 bg-white border-t border-slate-100 leading-relaxed">
+                        Sí, contamos con un espacio físico acondicionado para brindar atención y evaluación de malestares menores y casos leves de salud.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden transition-all bg-white">
+                    <button class="faq-btn w-full p-5 text-left font-bold text-sorana-navy text-sm sm:text-base flex justify-between items-center bg-slate-50/80 hover:bg-slate-100 transition-colors focus:outline-none">
+                        <span class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-question text-sorana-teal text-sm"></i>
+                            ¿Cómo puedo solicitar orientación?
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden p-5 text-xs sm:text-sm text-slate-600 bg-white border-t border-slate-100 leading-relaxed">
+                        Puedes llenar nuestro formulario web en esta página, escribirnos directamente al WhatsApp oficial o visitarnos en nuestro local presencial.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 7 -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden transition-all bg-white">
+                    <button class="faq-btn w-full p-5 text-left font-bold text-sorana-navy text-sm sm:text-base flex justify-between items-center bg-slate-50/80 hover:bg-slate-100 transition-colors focus:outline-none">
+                        <span class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-question text-sorana-teal text-sm"></i>
+                            ¿Dónde se encuentra el local de SORANA?
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden p-5 text-xs sm:text-sm text-slate-600 bg-white border-t border-slate-100 leading-relaxed">
+                        Nos encontramos ubicados en la <strong>Av. Javier Prado Este 1184 - 1186</strong>. Nuestro horario de atención presencial y orientación es de <strong>lunes a sábado de 7:30 am a 8:00 pm</strong>.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: FORMULARIO DE CONTACTO (LEAD GENERATION) -->
+    <section id="contacto" class="py-20 bg-slate-50 border-t border-slate-200/60">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-slate-200/80">
+                
+                <div class="text-center mb-10">
+                    <span class="text-xs font-bold text-sorana-teal tracking-widest uppercase">Contacto directo</span>
+                    <h2 class="text-3xl font-bold text-sorana-navy mt-1">Cuéntanos qué necesitas</h2>
+                    <p class="text-slate-600 text-sm mt-2">
+                        Completa este breve formulario y nuestro equipo se pondrá en contacto contigo para orientarte.
+                    </p>
+                </div>
+
+                <form id="contact-form" class="space-y-6">
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        
+                        <div>
+                            <label class="block text-xs font-bold text-sorana-navy mb-2">Nombre completo *</label>
+                            <input type="text" id="input-name" required placeholder="Tu nombre" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-none focus:border-sorana-teal focus:ring-1 focus:ring-sorana-teal bg-slate-50/50">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-sorana-navy mb-2">Teléfono / WhatsApp *</label>
+                            <input type="tel" id="input-phone" required placeholder="Ej: +51 987 654 321" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-none focus:border-sorana-teal focus:ring-1 focus:ring-sorana-teal bg-slate-50/50">
+                        </div>
+
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        
+                        <div>
+                            <label class="block text-xs font-bold text-sorana-navy mb-2">Correo electrónico</label>
+                            <input type="email" id="input-email" placeholder="correo@ejemplo.com" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-none focus:border-sorana-teal focus:ring-1 focus:ring-sorana-teal bg-slate-50/50">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-sorana-navy mb-2">¿Qué necesitas? *</label>
+                            <select id="input-need" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-none focus:border-sorana-teal focus:ring-1 focus:ring-sorana-teal bg-slate-50/50 text-slate-700">
+                                <option value="" disabled selected>Selecciona una opción</option>
+                                <option value="orientacion">Necesito orientación</option>
+                                <option value="especialista">Busco un especialista</option>
+                                <option value="especialidad">Quiero conocer una especialidad</option>
+                                <option value="leve">Atención para un caso leve</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-sorana-navy mb-2">Comentario breve (opcional)</label>
+                        <textarea id="input-message" rows="3" placeholder="Describe brevemente tu duda o consulta..." class="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-none focus:border-sorana-teal focus:ring-1 focus:ring-sorana-teal bg-slate-50/50"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-sorana-teal hover:bg-sorana-tealHover text-white py-4 rounded-xl font-bold text-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane text-xs"></i>
+                        <span>Solicitar orientación</span>
+                    </button>
+
+                    <p class="text-[11px] text-slate-400 text-center">
+                        Tus datos son gestionados de forma privada y confidencial por SORANA.
+                    </p>
+                </form>
+
+                <!-- Confirmation Box Feedback View -->
+                <div id="form-success" class="hidden p-8 bg-emerald-50 border border-emerald-200 rounded-2xl text-center space-y-3">
+                    <div class="w-12 h-12 mx-auto rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <h4 class="font-bold text-emerald-900 text-lg">¡Solicitud recibida con éxito!</h4>
+                    <p class="text-xs text-emerald-700 max-w-md mx-auto leading-relaxed">
+                        Gracias por comunicarte con <strong>SORANA</strong>. Un orientador evaluará tu consulta y se pondrá en contacto contigo a la brevedad.
+                    </p>
+                    <button onclick="resetContactForm()" class="inline-block mt-2 text-xs font-bold text-emerald-800 underline">
+                        Enviar otra consulta
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FINAL CTA BANNER -->
+    <section class="py-16 bg-gradient-to-br from-sorana-navy to-sorana-navyDark text-white text-center">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <h2 class="text-3xl sm:text-4xl font-bold">¿No sabes por dónde empezar?</h2>
+            <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+                Estamos aquí para escucharte y guiarte hacia la opción médica adecuada para ti o tu familia.
+            </p>
+            <div>
+                <a href="#contacto" class="inline-flex items-center gap-2 bg-sorana-teal hover:bg-sorana-tealHover text-white px-8 py-4 rounded-xl font-bold text-xs sm:text-sm transition-all shadow-lg hover:shadow-xl">
+                    <span>Solicitar orientación</span>
+                    <i class="fa-solid fa-comments text-xs"></i>
+                </a>
+            </div>
+
+            <div class="pt-8 border-t border-white/10 flex flex-col items-center justify-center gap-1">
+                <span class="font-poppins font-bold text-xl tracking-wider">SORANA</span>
+                <span class="text-xs text-sorana-lightblue font-medium">Centro Médico Especializado</span>
+                <span class="text-xs text-slate-300 italic mt-0.5">— Tu confianza en salud —</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FLOATING WHATSAPP BUTTON (FAST CONTACT) -->
+    <a href="#contacto" id="whatsapp-float" class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20bd5a] text-white px-4 py-3 rounded-full shadow-2xl flex items-center gap-3 transition-all hover:scale-105 group" title="WhatsApp Oficial SORANA">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+        <span class="text-xs font-bold hidden sm:inline-block pr-1">¿Necesitas orientación?</span>
+    </a>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                
+                <!-- Col 1: Brand -->
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <span class="font-poppins font-bold text-2xl tracking-wider text-white">SORANA</span>
+                    </div>
+                    <p class="text-slate-300 text-xs font-medium">
+                        Centro Médico Especializado<br>
+                        <span class="text-sorana-lightblue italic">"Tu confianza en salud."</span>
+                    </p>
+                    <p class="text-[11px] text-slate-500 leading-relaxed">
+                        Intermediación, orientación y atención médica responsable.
+                    </p>
+                </div>
+
+                <!-- Col 2: Links -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-3">Navegación</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="#nosotros" class="hover:text-white transition-colors">Nosotros</a></li>
+                        <li><a href="#servicios" class="hover:text-white transition-colors">Servicios</a></li>
+                        <li><a href="#especialidades" class="hover:text-white transition-colors">Especialidades</a></li>
+                        <li><a href="#como-funciona" class="hover:text-white transition-colors">¿Cómo funciona?</a></li>
+                        <li><a href="#faq" class="hover:text-white transition-colors">Preguntas frecuentes</a></li>
+                        <li><a href="#contacto" class="hover:text-white transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Official Social Media Links -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-3">Redes Sociales Oficiales</h4>
+                    <div class="space-y-3">
+                        <a href="https://facebook.com/centroespecializadosorana" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 hover:text-white transition-colors group">
+                            <div class="w-7 h-7 rounded-lg bg-blue-600/20 text-blue-500 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all">
+                                <i class="fa-brands fa-facebook-f text-xs"></i>
+                            </div>
+                            <span>centroespecializadosorana</span>
+                        </a>
+                        <a href="https://instagram.com/centromedicosorana57" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 hover:text-white transition-colors group">
+                            <div class="w-7 h-7 rounded-lg bg-pink-600/20 text-pink-500 flex items-center justify-center group-hover:bg-pink-600 group-hover:text-white transition-all">
+                                <i class="fa-brands fa-instagram text-xs"></i>
+                            </div>
+                            <span>centromedicosorana57</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 4: Institutional Contact Placeholders -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-3">Información de Contacto</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-location-dot text-sorana-teal mt-0.5"></i>
+                            <span><strong class="text-slate-300">Dirección:</strong> Av. Javier Prado Este 1184 - 1186</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-clock text-sorana-teal mt-0.5"></i>
+                            <span><strong class="text-slate-300">Horario:</strong> Lunes a Sábado: 7:30 am - 8:00 pm</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-brands fa-whatsapp text-sorana-teal mt-0.5"></i>
+                            <span><strong class="text-slate-300">WhatsApp:</strong> [AGREGAR WHATSAPP OFICIAL]</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-envelope text-sorana-teal mt-0.5"></i>
+                            <span><strong class="text-slate-300">Correo:</strong> [Por completar]</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 text-center text-[11px] text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-3">
+                <p>&copy; 2026 SORANA. Todos los derechos reservados.</p>
+                <p>SORANA — Tu confianza en salud</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // 1. Mobile Hamburger Menu Toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Close mobile menu when a navigation item is clicked
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // 2. Interactive Hero Orientation Assistant
+            window.selectHeroOption = function(optionKey) {
+                const resultBox = document.getElementById('hero-wizard-result');
+                const titleElem = document.getElementById('hero-result-title');
+                const textElem = document.getElementById('hero-result-text');
+                const btnElem = document.getElementById('hero-result-btn');
+
+                if (!resultBox || !titleElem || !textElem || !btnElem) return;
+
+                if (optionKey === 'orientacion') {
+                    titleElem.textContent = "Sugerencia: Orientación Inicial";
+                    textElem.textContent = "Cuéntanos tus síntomas o dudas en nuestro formulario y un orientador te dirá qué especialidad médica se ajusta mejor a tu necesidad.";
+                } else if (optionKey === 'especialidad') {
+                    titleElem.textContent = "Sugerencia: Conexión Especializada";
+                    textElem.textContent = "Te ayudamos a encontrar una opción conveniente dentro de nuestra red recomendada de clínicas y médicos especialistas.";
+                } else if (optionKey === 'leve') {
+                    titleElem.textContent = "Sugerencia: Atención Presencial Leve";
+                    textElem.textContent = "Puedes consultar para ser atendido en nuestro local presencial acondicionado para afecciones médicas leves.";
+                }
+
+                resultBox.classList.remove('hidden');
+            };
+
+            window.resetHeroWizard = function() {
+                const resultBox = document.getElementById('hero-wizard-result');
+                if (resultBox) resultBox.classList.add('hidden');
+            };
+
+            // 3. Specialties Filter / Search
+            const specialtyInput = document.getElementById('specialty-search');
+            if (specialtyInput) {
+                specialtyInput.addEventListener('input', function(e) {
+                    const query = e.target.value.toLowerCase().trim();
+                    const cards = document.querySelectorAll('.specialty-card');
+
+                    cards.forEach(card => {
+                        const name = card.getAttribute('data-name') || '';
+                        if (name.includes(query)) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
+                });
+            }
+
+            // 4. Interactive Accordion (FAQ)
+            const faqButtons = document.querySelectorAll('.faq-btn');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    const icon = button.querySelector('i.fa-chevron-down');
+                    
+                    const isOpen = !content.classList.contains('hidden');
+                    
+                    // Close all FAQs first
+                    document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+                    document.querySelectorAll('.faq-btn i.fa-chevron-down').forEach(i => {
+                        i.style.transform = 'rotate(0deg)';
+                    });
+
+                    // Toggle clicked FAQ
+                    if (!isOpen && content) {
+                        content.classList.remove('hidden');
+                        if (icon) icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+
+            // 5. Contact Form Handler & Validation
+            const contactForm = document.getElementById('contact-form');
+            const formSuccess = document.getElementById('form-success');
+            
+            // URL oficial del Web App de Google Apps Script para registro de leads
+            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx7ce-vYVh0mn0KKSBBGzDGhN99ri3TCyrbZrFoDUssNztoYzLt0M0M7UUv91dnTlv-/exec';
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    const originalBtnContent = submitBtn ? submitBtn.innerHTML : '';
+
+                    // Mostrar estado de carga en el botón
+                    if (submitBtn) {
+                        submitBtn.disabled = true;
+                        submitBtn.innerHTML = '<i class="fa-solid fa-spinner animate-spin text-xs"></i><span>Enviando información...</span>';
+                    }
+
+                    const formData = {
+                        name: document.getElementById('input-name')?.value || '',
+                        phone: document.getElementById('input-phone')?.value || '',
+                        email: document.getElementById('input-email')?.value || '',
+                        need: document.getElementById('input-need')?.value || '',
+                        message: document.getElementById('input-message')?.value || ''
+                    };
+
+                    // Si se ha configurado la URL del Apps Script, enviar los datos reales
+                    if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== 'PEGA_AQUI_TU_URL_DE_WEB_APP') {
+                        fetch(GOOGLE_SCRIPT_URL, {
+                            method: 'POST',
+                            mode: 'no-cors',
+                            headers: {
+                                'Content-Type': 'text/plain;charset=utf-8'
+                            },
+                            body: JSON.stringify(formData)
+                        })
+                        .then(() => {
+                            contactForm.classList.add('hidden');
+                            if (formSuccess) formSuccess.classList.remove('hidden');
+                        })
+                        .catch(err => {
+                            console.error('Error al enviar los datos a Google Sheets:', err);
+                            contactForm.classList.add('hidden');
+                            if (formSuccess) formSuccess.classList.remove('hidden');
+                        })
+                        .finally(() => {
+                            if (submitBtn) {
+                                submitBtn.disabled = false;
+                                submitBtn.innerHTML = originalBtnContent;
+                            }
+                        });
+                    } else {
+                        // Modo simulación si aún no han pegado la URL
+                        setTimeout(() => {
+                            contactForm.classList.add('hidden');
+                            if (formSuccess) formSuccess.classList.remove('hidden');
+                            if (submitBtn) {
+                                submitBtn.disabled = false;
+                                submitBtn.innerHTML = originalBtnContent;
+                            }
+                        }, 800);
+                    }
+                });
+            }
+
+            window.resetContactForm = function() {
+                if (contactForm && formSuccess) {
+                    contactForm.reset();
+                    contactForm.classList.remove('hidden');
+                    formSuccess.classList.add('hidden');
+                }
+            };
+
+        });
+    </script>
+</body>
+</html>
